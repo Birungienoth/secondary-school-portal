@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block header %}Student Management{% endblock %}{% block content %}
+<form method="post" class="grid"><h3>Register Student</h3>
+{% for n,l,typ in [('student_id','Student Number','text'),('name','Student Name','text'),('date_of_birth','Date of Birth','date'),('class_name','Class','text'),('stream','Stream','text'),('academic_year','Academic Year','text'),('admission_date','Admission Date','date'),('address','Address','text')] %}<label>{{l}}<input name="{{n}}" type="{{typ}}" {% if n in ['student_id','name','class_name','stream','academic_year'] %}required{% endif %}></label>{% endfor %}
+<label>Gender<select name="gender" required><option value="">Select</option><option>Male</option><option>Female</option></select></label>
+<label>Status<select name="status"><option>Active</option><option>Inactive</option></select></label><button>Save Student</button></form>
+<h3>Registered Students</h3><table><tr><th>Number</th><th>Name</th><th>Gender</th><th>Class</th><th>Stream</th><th>Year</th><th>Status</th></tr>{% for s in students %}<tr><td>{{s.student_id}}</td><td>{{s.name}}</td><td>{{s.gender}}</td><td>{{s.class_name}}</td><td>{{s.stream}}</td><td>{{s.academic_year}}</td><td>{{s.status}}</td></tr>{% endfor %}</table>{% endblock %}
