@@ -1,2 +1,0 @@
-{% extends "base.html" %}{% block title %}Dashboard{% endblock %}{% block header %}Dashboard{% endblock %}{% block content %}
-<h2>Welcome to the Secondary School Management Portal</h2><div class="cards">{% for k,l in [('students','Students'),('parents','Parents / Guardians'),('subjects','Subjects'),('marks','Marks'),('payments','Payments'),('notifications','Notifications')] %}<div class="card"><b>{{counts[k]}}</b><span>{{l}}</span></div>{% endfor %}</div>{% endblock %}
